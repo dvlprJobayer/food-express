@@ -62,7 +62,9 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
                 {/* Add Food Item Button */}
                 <Pressable onPress={() => setModalVisible(true)}>
                     <View style={styles.addFood}>
-                        <Text style={styles.addFoodText}>+ Add Food Item</Text>
+                        <Text style={styles.addFoodText}>
+                            + {"    "} Add Food Item
+                        </Text>
                     </View>
                 </Pressable>
             </ScrollView>
@@ -85,12 +87,11 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
 const styles = StyleSheet.create({
     foodItemContainer: {
         marginHorizontal: 16,
-        marginBottom: 16,
     },
     addFood: {
         backgroundColor: "#e1f6ec",
         marginHorizontal: 16,
-        marginVertical: 10,
+        marginVertical: 13,
         padding: 13,
         borderRadius: 8,
         borderWidth: 1,
