@@ -3,9 +3,8 @@ import { View, Text, Pressable, StyleSheet, ScrollView } from "react-native";
 import FoodItem from "./FoodItem";
 import FoodModal from "./FoodModal";
 
-export default function AddFoodItem() {
+export default function AddFoodItem({ foodStore, setFoodStore }) {
     const [modalVisible, setModalVisible] = useState(false);
-    const [foodStore, setFoodStore] = useState([]);
 
     // Name And Price State
     const [foodName, setFoodName] = useState("");
