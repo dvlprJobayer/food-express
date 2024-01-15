@@ -1,7 +1,16 @@
 import { useState } from "react";
-import { View, Text, Pressable, StyleSheet, ScrollView } from "react-native";
-import FoodItem from "./FoodItem";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 import FoodModal from "./FoodModal";
+import DraggableFood from "./DraggableFood";
+
+// {
+//     foodStore.map((foodItem) => (
+//         <FoodItem
+//             setModalVisible={setModalVisible}
+//             addFood={addFood}
+//         />
+//     ));
+// }
 
 export default function AddFoodItem({ foodStore, setFoodStore }) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -31,7 +40,7 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
                     {
                         name: foodName,
                         price: foodPrice,
-                        id: currentFoodList.length,
+                        id: currentFoodList.length + "",
                     },
                 ]);
             }
@@ -43,21 +52,15 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
 
     return (
         <>
-            <ScrollView>
-                {/* Food Item Container */}
-                <View style={styles.foodItemContainer}>
-                    {foodStore.map((foodItem) => (
-                        <FoodItem
-                            key={foodItem?.id}
-                            foodItem={foodItem}
-                            setFood={setFoodStore}
-                            allFood={foodStore}
-                            setModalVisible={setModalVisible}
-                            addFood={addFood}
-                            setId={setId}
-                        />
-                    ))}
-                </View>
+            {/* Food Item Container */}
+            <View style={styles.foodItemContainer}>
+                <DraggableFood
+                    foodStore={foodStore}
+                    setFood={setFoodStore}
+                    setId={setId}
+                    addFood={addFood}
+                    setModalVisible={setModalVisible}
+                />
 
                 {/* Add Food Item Button */}
                 <Pressable onPress={() => setModalVisible(true)}>
@@ -67,7 +70,7 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
                         </Text>
                     </View>
                 </Pressable>
-            </ScrollView>
+            </View>
 
             {/* Popup Modal */}
             <FoodModal
@@ -79,6 +82,7 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
                 setFoodName={setFoodName}
                 setFoodPrice={setFoodPrice}
                 setId={setId}
+                id={id}
             />
         </>
     );
@@ -86,12 +90,13 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
 
 const styles = StyleSheet.create({
     foodItemContainer: {
+        flex: 1,
         marginHorizontal: 16,
+        marginVertical: 5,
     },
     addFood: {
         backgroundColor: "#e1f6ec",
-        marginHorizontal: 16,
-        marginVertical: 13,
+        marginVertical: 16,
         padding: 13,
         borderRadius: 8,
         borderWidth: 1,

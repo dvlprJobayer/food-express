@@ -5,6 +5,15 @@ const DataScreen = () => {
     const route = useRoute();
     const jsonData = route.params;
 
+    if (jsonData.length === 0) {
+        return (
+            <View style={{ marginTop: 16 }}>
+                <Text style={styles.warningText}>No data here!</Text>
+                <Text style={styles.warningText}>Please add some food!</Text>
+            </View>
+        );
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.bracket}>[</Text>
@@ -39,4 +48,5 @@ const styles = StyleSheet.create({
     bracket: {
         fontSize: 18,
     },
+    warningText: { textAlign: "center", marginTop: 4, fontSize: 16 },
 });

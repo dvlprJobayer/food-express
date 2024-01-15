@@ -3,10 +3,9 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 export default function FoodItem(props) {
     // Delete Food Item Function
     function deleteFood(id) {
-        const restFood = props.allFood.filter(
-            (singleFood) => singleFood.id !== id
+        props.setFood((currentFoods) =>
+            currentFoods.filter((food) => food.id !== id)
         );
-        props.setFood(restFood);
     }
 
     // Edit Food Item function

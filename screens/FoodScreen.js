@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     dataBtn: {
         backgroundColor: "#e1f6ec",
         marginHorizontal: 16,
-        marginVertical: 10,
+        marginBottom: 13,
         borderRadius: 8,
         borderWidth: 1,
         borderColor: "#03b660",
