@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity } from "react-native";
 import DragList from "react-native-draglist";
 import FoodItem from "./FoodItem";
 
@@ -7,7 +7,6 @@ export default function DraggableFood({
     foodStore,
     setFood,
     setId,
-    addFood,
     setModalVisible,
 }) {
     const [data, setData] = useState([]);
@@ -33,7 +32,6 @@ export default function DraggableFood({
                     foodItem={item}
                     setFood={setFood}
                     setId={setId}
-                    addFood={addFood}
                     setModalVisible={setModalVisible}
                 />
             </TouchableOpacity>

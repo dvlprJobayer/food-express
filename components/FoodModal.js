@@ -46,7 +46,7 @@ export default function FoodModal(props) {
                                 style={styles.modalInput}
                             />
                         </View>
-                        <Pressable onPress={props.addFood}>
+                        <Pressable onPress={props.addEditFood}>
                             <View style={styles.modalBtn}>
                                 <Text
                                     style={{

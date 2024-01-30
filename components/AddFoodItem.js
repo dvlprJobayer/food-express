@@ -3,14 +3,14 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import FoodModal from "./FoodModal";
 import DraggableFood from "./DraggableFood";
 
-// {
-//     foodStore.map((foodItem) => (
-//         <FoodItem
-//             setModalVisible={setModalVisible}
-//             addFood={addFood}
-//         />
-//     ));
-// }
+function* generator() {
+    let id = 0
+    while (true) {
+        yield id++
+    }
+}
+
+const getId = generator()
 
 export default function AddFoodItem({ foodStore, setFoodStore }) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -23,7 +23,7 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
     const [id, setId] = useState(null);
 
     // Add Food Function
-    function addFood() {
+    function addEditFood() {
         if (foodName && foodPrice) {
             if (id !== null) {
                 const restFood = foodStore.filter(
@@ -40,7 +40,7 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
                     {
                         name: foodName,
                         price: foodPrice,
-                        id: currentFoodList.length + "",
+                        id: getId.next().value + "",
                     },
                 ]);
             }
@@ -58,7 +58,6 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
                     foodStore={foodStore}
                     setFood={setFoodStore}
                     setId={setId}
-                    addFood={addFood}
                     setModalVisible={setModalVisible}
                 />
 
@@ -76,9 +75,7 @@ export default function AddFoodItem({ foodStore, setFoodStore }) {
             <FoodModal
                 modalVisible={modalVisible}
                 setModalVisible={setModalVisible}
-                foodStore={foodStore}
-                setFoodStore={setFoodStore}
-                addFood={addFood}
+                addEditFood={addEditFood}
                 setFoodName={setFoodName}
                 setFoodPrice={setFoodPrice}
                 setId={setId}
