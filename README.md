@@ -3,8 +3,8 @@
 ## Project features and functionality:
 
 - Multiple Screen React Native Mobile Application.
-- User can Add and Edit Food Item with same Modal.
-- User can Delete Food Item.
+- User can Add and Edit Food Items with the same Modal.
+- User can Delete Food Items.
 - User can see their added Food Items in JSON Format.
 
 
