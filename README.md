@@ -4,6 +4,7 @@
 
 - Multiple Screen React Native Mobile Application.
 - User can Add and Edit Food Items with the same Modal.
+- Food item lists have draggable features.
 - User can Delete Food Items.
 - User can see their added Food Items in JSON Format.
 
